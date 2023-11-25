@@ -1,10 +1,13 @@
 from flask import Flask,render_template
+import datetime
 
 app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return render_template("index.html")
+    now = datetime.datetime.now()
+    current_year = now.year
+    return render_template("index.html",year = current_year)
 
 
 
